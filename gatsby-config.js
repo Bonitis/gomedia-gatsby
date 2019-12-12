@@ -1,10 +1,6 @@
 require("dotenv").config();
 
-const {
-  TS_API_ENDPOINT,
-  TS_PROJECT_ID,
-  TS_AUTH_TOKEN
-} = process.env;
+const { TAKESHAPE_PROJECT, TAKESHAPE_TOKEN } = process.env;
 
 module.exports = {
   siteMetadata: {
@@ -29,10 +25,10 @@ module.exports = {
       options: {
         typeName: "TS",
         fieldName: "takeshape",
-        url: `${TS_API_ENDPOINT}/project/${TS_PROJECT_ID}/graphql`,
+        url: `https://api.takeshape.io/project/${TAKESHAPE_PROJECT}/graphql`,
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${TS_AUTH_TOKEN}`
+          Authorization: `Bearer ${TAKESHAPE_TOKEN}`
         },
         fetchOptions: {}
       }
